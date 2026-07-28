@@ -16,6 +16,7 @@
   --ink: #1B2430;
 
   --font-display: 'Reem Kufi', sans-serif;
+  --font-name: 'Aref Ruqaa', serif;
   --font-body: 'Tajawal', sans-serif;
   --font-mono: 'Space Grotesk', sans-serif;
 
@@ -68,10 +69,9 @@ h1, h2 { margin: 0; font-family: var(--font-display); font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
-    animation-duration: 0.001ms !important;
+    animation-duration: 0.3s !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+    transition-duration: 0.3s !important;
   }
 }
 
@@ -326,8 +326,10 @@ h1, h2 { margin: 0; font-family: var(--font-display); font-weight: 700; }
   background: radial-gradient(ellipse at center, var(--ivory) 42%, rgba(246, 241, 231, 0) 76%);
 }
 .hero__name {
-  font-size: clamp(2.9rem, 13vw, 6.2rem);
-  line-height: 1.15;
+  font-family: var(--font-name);
+  font-weight: 700;
+  font-size: clamp(3.2rem, 15vw, 7rem);
+  line-height: 1.2;
   margin-bottom: 1rem;
 }
 .hero__tagline {
@@ -567,8 +569,9 @@ h1, h2 { margin: 0; font-family: var(--font-display); font-weight: 700; }
   transition: opacity 0.4s ease;
 }
 .entrance__name {
-  font-family: var(--font-display);
-  font-size: clamp(2.1rem, 8vw, 3.6rem);
+  font-family: var(--font-name);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 10vw, 4.2rem);
   margin: 0 0 3rem;
   transition: opacity 0.4s ease;
 }

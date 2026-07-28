@@ -360,7 +360,7 @@
   }
 
   function startAutoScroll(reduceMotion) {
-    if (reduceMotion || autoScrollActive) return;
+    if (autoScrollActive) return;
     if (typeof invitationData !== "undefined" && invitationData.autoScroll === false) return;
 
     var doc = document.documentElement;
@@ -485,14 +485,11 @@
       opened = true;
       entrance.classList.add("entrance--opening");
       tryStartMusicOnEntrance();
-      // نأخّر بدء التمرير حتى ينتهي انطواء البوابة (0.35s تأخير + 0.8s حركة = 1.15s في style.css)
-      // حتى لا يتعارض تمرير الصفحة مع تصغير ارتفاع البوابة في نفس اللحظة.
-      window.setTimeout(
-        function () {
-          startAutoScroll(reduceMotion);
-        },
-        reduceMotion ? 0 : 1150
-      );
+      // نأخّر بدء التمرير حتى ينتهي انطواء البوابة تقريبًا، حتى لا يتعارض
+      // تمرير الصفحة مع تصغير ارتفاع البوابة في نفس اللحظة.
+      window.setTimeout(function () {
+        startAutoScroll(reduceMotion);
+      }, 1150);
     }
 
     btn.addEventListener("click", function (e) {
@@ -501,7 +498,7 @@
     });
 
     // فتح تلقائي حتى لو الزائر ما لمس الزر أبدًا — عشان التجربة تبلش لحالها دايمًا، متل فيديو
-    window.setTimeout(openEntrance, reduceMotion ? 300 : 4000);
+    window.setTimeout(openEntrance, 4000);
   }
 
   /* ---------- التشغيل: كل وحدة معزولة بحيث لا يوقف خطأ في وحدة بقية الموقع ---------- */
